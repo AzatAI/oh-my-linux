@@ -1,0 +1,1 @@
+sed -i '/ZSH_THEME="robbyrussell"/c\This line is removed by the admin.' .zshrc
