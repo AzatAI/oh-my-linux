@@ -1,0 +1,22 @@
+echo "Thanks for Using AzatAI Automated Shell Script for Linux - oh-my-linux"
+echo "You can watch the repo at https://github.com/AzatAI/oh-my-linux"
+echo "Step 1 : updating the apt base and installing updates."
+sudo apt install && sudo apt upgrade -y
+echo "Step 2 : Checking git installation on your system."
+sudo apt install git -y
+echo "Step 2 : Checking curl installation on your system. (we need curl to install oh-my-zsh)"
+sudo apt install curl -y 
+echo "Step 3 : Installing zsh and Oh-My-Zsh"
+sudo apt install zsh -y 
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+echo "Step 4 : Installing awesome zsh-user plugins to start (autocompletion,autosuggestions,syntax-highlighting)"
+git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/plugins/zsh-completions
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
+echo "Step 5 : Installing powerlevel10k theme for oh-my-zsh (this will automatically activate your theme)"
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+sed -i '/ZSH_THEME="robbyrussell"/c\This line is removed by the admin.' ~/.zshrc
+echo "Step 6 : Activating the zsh shell, restarting zsh to make all changes"
+sed -i '/plugins=(git)/c\plugins=(git zsh-completions zsh-autosuggestions zsh-syntax-highlighting )' ~/.zshrc
+chsh -s $(which zsh)
+source ~/.zshrc
