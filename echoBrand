@@ -1,0 +1,3 @@
+echo "Thanks for Using AzatAI Automated Shell Script for Linux - oh-my-linux"
+echo "You can watch the repo at https://github.com/AzatAI/oh-my-linux"
+echo "Step 1 : updating the apt base and installing updates"

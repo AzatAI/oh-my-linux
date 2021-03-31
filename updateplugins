@@ -1,0 +1,1 @@
+sed -i '/plugins=(git)/c\plugins=(git zsh-completions zsh-autosuggestions zsh-syntax-highlighting )' .zshrc
